@@ -1,0 +1,17 @@
+# 
+# Definition of all trackable objects
+# Identifier corresponds to Trackable ID set in Tracking Tools
+#
+#
+
+rigid_bodies:
+  '1':
+    pose: rb_1/pose
+    pose2d: rb_1/ground_pose
+    frame_id: rb_1
+
+  '2':
+    pose: rb_2/pose
+    pose2d: rb_2/ground_pose
+    frame_id: rb_2
+

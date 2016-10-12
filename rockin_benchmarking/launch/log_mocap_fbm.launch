@@ -1,0 +1,42 @@
+<launch>
+	<group ns="fbm">
+	
+		<rosparam file="$(find rockin_benchmarking)/config/log_mocap_fbm.yaml" command="load" />
+
+		<node pkg="tf"
+			type="static_transform_publisher"
+			name="world_map_bc"
+			args="0 0 0 0 0 0 world map 100"
+		/>
+		
+		<node name="map_server"
+			pkg="map_server"
+			type="map_server"
+			args="$(find rockin_benchmarking)/config/map_fbm.yaml"
+		/>
+
+		<node name="mocap_fbm" 
+			pkg="mocap_optitrack_mod2" 
+			type="mocap_node_mod2"
+			respawn="false"
+			launch-prefix=""
+			required="true"
+		/>
+
+		<node pkg="rosbag"
+			type="record"
+			name="log_mocap_fbm"
+			args="record -o /home/rockin/logs/log_mocap_fbm
+				--split --duration=1h
+				/fbm/map
+				/fbm/map_metadata
+				/fbm/origin/pose
+				/fbm/origin/pose2d
+				/fbm/ref_board/pose
+				/fbm/ref_board/pose2d
+				/tf
+				/rosout"
+		/>
+
+	</group>      
+</launch>

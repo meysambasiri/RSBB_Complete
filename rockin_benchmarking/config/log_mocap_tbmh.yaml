@@ -1,0 +1,7 @@
+mocap_multicast_ip: 239.255.42.2
+
+rigid_bodies:
+  '3':
+    pose: robot/pose
+    pose2d: robot/pose2d
+    frame_id: robot_at_home

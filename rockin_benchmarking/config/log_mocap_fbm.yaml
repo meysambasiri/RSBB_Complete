@@ -1,0 +1,5 @@
+mocap_multicast_ip: 239.255.42.1
+
+rigid_bodies:
+  '1': {frame_id: origin, pose: origin/pose, pose2d: origin/pose2d}
+  '2': {frame_id: ref_board, pose: ref_board/pose, pose2d: ref_board/pose2d}
